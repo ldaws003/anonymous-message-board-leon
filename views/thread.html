@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to HyperDev!</title>
-    <meta name="description" content="A cool thing made with HyperDev">
+    <title>Anonymous Message board</title>
+    <meta name="description" content="A cool thing made with glitch.com">
     <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +28,7 @@
         $(function() {
         var currentURL = window.location.pathname.slice(3);
         currentURL = currentURL.split('/');
+        console.log(currentURL);
         
         var url = "/api/replies/"+currentURL[0];
         $('#threadTitle').text(window.location.pathname);
@@ -43,7 +44,6 @@
             // THIS ARRAY SET UP IS FOR CODE READABILITIES AND TESTING!
             // THIS IS NOT WHAT IT WOULD LOOK LIKE TO GO LIVE
             //
-              console.log(ele);//can I use typeScript please?!
               var thread = ['<div class="thread">'];
               thread.push('<div class="main">')
               thread.push('<p class="id">id: '+ele._id+' ('+ele.created_on+')</p>');
