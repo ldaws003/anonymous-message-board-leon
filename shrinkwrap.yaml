@@ -5,7 +5,7 @@ dependencies:
   cors: 2.8.5
   express: 4.16.4
   helmet: 3.15.0
-  jquery: 2.2.1
+  jquery: 3.3.1
   mocha: 3.5.3
   mongodb: 2.2.36
   zombie: 5.0.8
@@ -721,10 +721,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
-  /jquery/2.2.1:
+  /jquery/3.3.1:
     dev: false
     resolution:
-      integrity: sha1-PD4WhUrT0qxErGUCGxdCbSKtgD8=
+      integrity: sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
   /jsbn/0.1.1:
     dev: false
     resolution:
@@ -1476,7 +1476,7 @@ specifiers:
   cors: ^2.8.1
   express: ^4.14.0
   helmet: ^3.1.0
-  jquery: 2.2.1
+  jquery: ^3.3.1
   mocha: ^3.2.0
   mongodb: ^2.2.16
   zombie: ^5.0.5

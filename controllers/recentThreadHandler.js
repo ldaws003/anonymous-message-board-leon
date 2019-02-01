@@ -33,6 +33,8 @@ const CONNECTION_STRING = process.env.DB;
 function RecentThreadHandler(){
   
   this.recent = function(res, req){
+    
+    
   
   }
 
