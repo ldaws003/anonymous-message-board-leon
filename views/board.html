@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/public/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-          integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-          crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
@@ -43,14 +43,13 @@
           url: url,
           success: function(data)
           {
-            
             var boardThreads= [];
             //
             // THIS ARRAY SET UP IS FOR CODE READABILITIES AND TESTING!
             // THIS IS NOT WHAT IT WOULD LOOK LIKE TO GO LIVE
             //
             data.forEach(function(ele) {
-              console.log(ele);//can I use typeScript please?!
+              
               var thread = ['<div class="thread">'];
               thread.push('<div class="main">')
               thread.push('<p class="id">id: '+ele._id+' ('+ele.created_on+')</p>');

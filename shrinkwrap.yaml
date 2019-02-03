@@ -1476,7 +1476,7 @@ specifiers:
   cors: ^2.8.1
   express: ^4.14.0
   helmet: ^3.1.0
-  jquery: ^3.3.1
+  jquery: 3.3.1
   mocha: ^3.2.0
   mongodb: ^2.2.16
   zombie: ^5.0.5

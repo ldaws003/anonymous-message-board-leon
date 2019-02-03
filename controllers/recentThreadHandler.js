@@ -23,6 +23,7 @@ const MongoClient = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 const bodyParser = require('body-parser');
 const appRecent = express();
+const asyncMethod = require('async');
 
 appRecent.use(bodyParser.json());
 appRecent.use(bodyParser.urlencoded({ extended: true }));
@@ -30,10 +31,62 @@ appRecent.use(bodyParser.urlencoded({ extended: true }));
 const CONNECTION_STRING = process.env.DB;
 
 
+
 function RecentThreadHandler(){
   
-  this.recent = function(res, req){
     
+  
+  this.recent = function(req, res){
+     function returnFunction(arrCollection){
+       let arrFunc = [];
+       
+       for(let i = 0; i < arrCollection.length;i++){
+        arrFunc.push(()=>{
+          var collect = arrCollection[i];
+          fetchRecent(collect, callback);
+        });    
+      }
+    
+      return arrFunc;
+    }
+    
+    function fetchRecent(collection, callback){
+      
+      MongoClient.connect(CONNECTION_STRING, function(err, db){
+        if(err) throw err;
+        
+        db.collection(collection).find({}).sort({bumped_on: -1}).toArray(function(err, data){
+          if(err) callback(null, err);
+          data[0].replycount = data[0].replies.length;
+          data[0].replies = data[0].replies.slice(-1);
+          delete data[0].delete_password;
+          delete data.delete_password;
+          callback(null, data[0]);        
+        });      
+      });
+    }
+    
+    function callback(err, results){
+      if(err) throw err;
+      //console.log(results); 
+      res.json(results);
+    }
+    
+    
+    
+    MongoClient.connect(CONNECTION_STRING, function(err, db){
+          db.listCollections().toArray(function(err, collInfo){
+            
+            var collectionNames = [];
+            
+            collInfo.map((e) => {e.name != "system.indexes" ? collectionNames.push(e.name) : null});
+            
+            var newArr = returnFunction(collectionNames);            
+            
+            asyncMethod.parallel(newArr, callback);   
+          
+          });
+    });
     
   
   }
