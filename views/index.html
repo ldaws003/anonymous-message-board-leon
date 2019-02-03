@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./public/style.css">
     <link rel="stylesheet" href="./public/homepageStyle.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
   </head>
   <body>
     <header class="homepageHeader">
@@ -17,6 +20,9 @@
       </h1>
     </header>
     
+    <h2>
+      Most Recent Boards
+    </h2>
     <div id="recentThreads"></div>
     
     <!--<div id='userstories' style='margin-left: 5%; margin-top: 5%'>
@@ -96,10 +102,22 @@
     </div>
     <hr style='margin: 50px; margin-top: 200px'>-->
     <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
+    
     <script>
+      $(document).ready(function(){
+        $(function(){
+          $.ajax({
+            type: "GET",
+            url: "/api/recent",
+            success: function(data){          
+              console.log(data);  
+            }
+         }
+        );         
+        });             
+      });
+    </script>
+    <!--<script>
       $(function() {
         $('#newThread').submit(function(){
           var board = $('#board1').val();
@@ -162,6 +180,6 @@
           e.preventDefault();
         });
       });
-   </script>
+   </script>-->
   </body>
 </html>
