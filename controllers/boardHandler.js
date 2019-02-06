@@ -35,6 +35,7 @@ function BoardHandler(){
               doc.replycount = doc.replies.length;
               doc.replies = doc.replies.slice(-3);
             });
+
                                  
             res.json(data);            
           });

@@ -30,20 +30,18 @@ appRecent.use(bodyParser.urlencoded({ extended: true }));
 
 const CONNECTION_STRING = process.env.DB;
 
-
-
 function RecentThreadHandler(){
   
     
   
   this.recent = function(req, res){
-     function returnFunction(arrCollection){
+     function returnFunction(arrCollection, callback){
        let arrFunc = [];
        
        for(let i = 0; i < arrCollection.length;i++){
-        arrFunc.push(()=>{
+        arrFunc.push((callback)=>{
           var collect = arrCollection[i];
-          fetchRecent(collect, callback);
+          fetchRecent(collect, callback)
         });    
       }
     
@@ -66,10 +64,16 @@ function RecentThreadHandler(){
       });
     }
     
+    
     function callback(err, results){
       if(err) throw err;
-      //console.log(results); 
-      res.json(results);
+      
+      var boards = results;
+      boards.sort((a,b)=>{
+        return b.bumped_on - a.bumped_on;
+      });
+      boards = results.slice(0,5);
+      res.json(boards);
     }
     
     
@@ -81,7 +85,9 @@ function RecentThreadHandler(){
             
             collInfo.map((e) => {e.name != "system.indexes" ? collectionNames.push(e.name) : null});
             
-            var newArr = returnFunction(collectionNames);            
+            var newArr = returnFunction(collectionNames); 
+            
+           // db.collection(collectionNames[3]).find({}).count(function(err, data){console.log(data);});
             
             asyncMethod.parallel(newArr, callback);   
           
