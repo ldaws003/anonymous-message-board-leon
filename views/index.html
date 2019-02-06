@@ -7,13 +7,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./public/style.css">
-    <link rel="stylesheet" href="./public/homepageStyle.css">
+    <link rel="stylesheet" href="/public/homepage_style.css">
+    <link rel="stylesheet" href="/public/general_style.css">
+    <link rel="stylesheet" href="/public/navbar.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body> 
+    
+    <nav id="navigator" class="navclass">
+      <a href="/" class="nav-link active">Home</a>
+      <a href="/all-boards" class="nav-link">All boards</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>      
+    </nav>
+
     <header class="homepageHeader">
       <h1>
         Anonymous Message Board
@@ -23,8 +32,12 @@
     <h2 class="header">
       Most Recently Bumped Boards
     </h2>
+    
+    <div class="container">
+      <div id="recentThreads"></div>      
+    </div>
 
-    <div id="recentThreads"></div>
+    
 
     
     <!--<div id='userstories' style='margin-left: 5%; margin-top: 5%'>
@@ -116,16 +129,16 @@
               console.log(window.location.pathname);
              var boardThreads= [];
               data.forEach(function(ele) {              
-                var thread = ['<div class="thread">'];
+                var thread = ['<div class="gap"></div><div class="board">'];
                 thread.push('<div class="main">')
-                thread.push('<p class="boardPost"><a class="boardLink" href="/b/'+ele.board+'/">'+ele.board+'</a> ('+ele.bumped_on+')</p>');
-                thread.push('<form id="reportThread"><input type="hidden" name="report_id" value="'+ele._id+'"><input type="submit" value="Report"></form>');
-                thread.push('<form id="deleteThread"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="text" placeholder="password" name="delete_password" required=""><input type="submit" value="Delete"></form>');
+                thread.push('<p class="boardPost boardTop">Board: <a class="boardLink" href="/b/'+ele.board+'/">'+ele.board+'</a> Bumped on: '+ ele.bumped_on+'</p>');
+                thread.push('<div class="thread"><form id="reportThread" class="inLine"><input type="hidden" name="report_id" value="'+ele._id+'"><input type="submit" value="Report"></form>');
+                thread.push('<form id="deleteThread" class="inLine"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="text" placeholder="password" name="delete_password" maxlength="30" required=""><input type="submit" value="Delete"></form>');
                 thread.push('<h3>'+ele.text+'</h3>');
                 thread.push('</div><div class="replies">');
-                var hiddenCount = ele.replycount - 3;
+                var hiddenCount = ele.threadCount - 1;
                 if (hiddenCount < 1) { hiddenCount = 0 };
-                thread.push('<h5>'+ele.replycount+' threads total ('+hiddenCount+' hidden)- <a href="/b/'+ele.board+'/'+ele._id+'">See the full thread here</a>.</h5>');
+                thread.push('<h5>'+ele.threadCount+' threads total ('+hiddenCount+' hidden)- <a href="/b/'+ele.board+'/'+ele._id+'">See the full thread here</a>.</h5>');
                 ele.replies.forEach(function(rep) {
                   thread.push('<div class="reply">')
                   thread.push('<p class="id">id: '+rep._id+' ('+rep.created_on+')</p>');
@@ -137,9 +150,9 @@
                 thread.push('<div class="newReply">')
                 thread.push('<form action="/api/replies/'+ele.board+'/" method="post" id="newReply">');
                 thread.push('<input type="hidden" name="thread_id" value="'+ele._id+'">');
-                thread.push('<textarea rows="5" cols="80" type="text" placeholder="Quick reply..." name="text" required=""></textarea><br>');
+                thread.push('<textarea rows="5" cols="80" type="text" placeholder="Quick reply..." name="text" maxlength="300" required=""></textarea><br>');
                 thread.push('<input type="text" placeholder="password to delete" name="delete_password" required=""><input style="margin-left: 5px" type="submit" value="Submit">')
-                thread.push('</form></div></div></div>')
+                thread.push('</form></div></div></div></div>')
                 boardThreads.push(thread.join(''));
               });
               $('#recentThreads').html(boardThreads.join(''));

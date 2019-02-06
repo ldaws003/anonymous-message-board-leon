@@ -1,0 +1,28 @@
+.navclass {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex-wrap: wrap;
+  align-content: stretch;  
+  align-items: stretch;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 20px;
+  top: 0px;
+}
+
+.nav-link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  padding: 15px 15px;
+  flex-grow: 1;
+  margin: auto;
+  color: white;
+  font-family: "Verdana"
+}
+
+.nav-link:hover {
+  background-color: grey;
+}

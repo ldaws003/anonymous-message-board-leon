@@ -27,18 +27,33 @@ app.use(helmet({
 
 //Sample front-end
 app.route('/b/:board/')
-  .get(function (req, res) {
+  .get(function(req, res) {
     res.sendFile(process.cwd() + '/views/board.html');
   });
 app.route('/b/:board/:threadid')
-  .get(function (req, res) {
+  .get(function(req, res) {
     res.sendFile(process.cwd() + '/views/thread.html');
   });
 
 //Index page (static HTML)
 app.route('/')
-  .get(function (req, res) {
+  .get(function(req, res) {
     res.sendFile(process.cwd() + '/views/index.html');
+  });
+
+app.route('/all-boards')
+  .get(function(req, res){
+    res.sendFile(process.cwd() + '/views/all-boards.html');
+  });
+
+app.route('/about')
+  .get(function(req, res){
+    res.sendFile(process.cwd() + '/views/construction.html');
+  });
+
+app.route('/contact')
+  .get(function(req, res){
+    res.sendFile(process.cwd() + '/views/construction.html');
   });
 
 //For FCC testing purposes

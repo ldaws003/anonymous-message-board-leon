@@ -4,19 +4,6 @@
 *
 */
 
-/*
-*example code to use to iterate over collection names
-*db.listCollections().toArray(function(err, collInfo){
-            
-            var collectionNames = [];
-            
-            collInfo.map((e) => {e.name != "system.indexes" ? collectionNames.push(e.name) : null});
-            
-            console.log(collectionNames);
-          
-          });
-*/
-
 'use strict';
 const express = require('express');
 const MongoClient = require('mongodb');
@@ -24,6 +11,7 @@ const ObjectId = require('mongodb').ObjectId;
 const bodyParser = require('body-parser');
 const appRecent = express();
 const asyncMethod = require('async');
+const moment = require('moment');
 
 appRecent.use(bodyParser.json());
 appRecent.use(bodyParser.urlencoded({ extended: true }));
@@ -57,6 +45,7 @@ function RecentThreadHandler(){
           if(err) callback(null, err);
           data[0].replycount = data[0].replies.length;
           data[0].replies = data[0].replies.slice(-1);
+          data[0].threadCount = data.length;
           delete data[0].delete_password;
           delete data.delete_password;
           callback(null, data[0]);        
@@ -73,6 +62,9 @@ function RecentThreadHandler(){
         return b.bumped_on - a.bumped_on;
       });
       boards = results.slice(0,5);
+      boards.forEach((ele)=>{
+        ele.bumped_on = moment(new Date(ele.bumped_on)).calendar()
+      })
       res.json(boards);
     }
     
@@ -86,8 +78,6 @@ function RecentThreadHandler(){
             collInfo.map((e) => {e.name != "system.indexes" ? collectionNames.push(e.name) : null});
             
             var newArr = returnFunction(collectionNames); 
-            
-           // db.collection(collectionNames[3]).find({}).count(function(err, data){console.log(data);});
             
             asyncMethod.parallel(newArr, callback);   
           
