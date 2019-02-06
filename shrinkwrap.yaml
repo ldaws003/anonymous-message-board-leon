@@ -7,6 +7,7 @@ dependencies:
   helmet: 3.15.0
   jquery: 3.3.1
   mocha: 3.5.3
+  moment: 2.24.0
   mongodb: 2.2.36
   zombie: 5.0.8
 packages:
@@ -916,6 +917,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-/6na001MJWEtYxHOV1WLfsmR4YIynkUEhBwzsb+fk2qmQ3iqsi258l/Q2MWHJMImAcNpZ8DEdYAK72NHoIQ9Eg==
+  /moment/2.24.0:
+    dev: false
+    resolution:
+      integrity: sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
   /mongodb-core/2.1.20:
     dependencies:
       bson: 1.0.9
@@ -1478,5 +1483,6 @@ specifiers:
   helmet: ^3.1.0
   jquery: 3.3.1
   mocha: ^3.2.0
+  moment: ^2.24.0
   mongodb: ^2.2.16
   zombie: ^5.0.5

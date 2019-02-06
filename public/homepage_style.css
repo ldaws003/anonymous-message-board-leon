@@ -1,0 +1,63 @@
+.homepageHeader {
+  text-align: center;
+  font-family: "Verdana";
+  color: white;
+}
+
+.header {
+  width: 85%;
+  margin: auto;
+  font-family: "Arial";
+  margin-bottom: 20px;
+  margin-top: 40px;
+  color: white;  
+}
+
+textarea {
+  width: 75%;
+  resize: none;
+}
+
+.boardTop {
+  background-color: hsla(241, 45%, 39%, 1);
+  padding: 5px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.inLine {
+  display: inline-block;
+}
+
+.main {
+  border: 2px black solid;
+  border-radius: 5px;
+}
+
+#recentThreads {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.replies {
+  margin-left: 50px;
+}
+
+.reply {
+  border: 1px dotted black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.newReply {
+  margin: 10px 5px 10px 5px;
+}
+
+.id {
+  font-size: 10.5px;
+}
+
+#submitNewThread {
+  margin: 50px;
+}
