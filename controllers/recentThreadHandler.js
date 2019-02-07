@@ -20,6 +20,24 @@ const CONNECTION_STRING = process.env.DB;
 
 function RecentThreadHandler(){
   
+  this.allBoards = function(req,res){
+    
+    MongoClient.connect(CONNECTION_STRING, function(err, db){
+      if (err) throw err;
+      
+      db.listCollections().toArray(function(err, collInfo){
+            
+            var collectionNames = [];
+            
+            collInfo.map((e) => {e.name != "system.indexes" ? collectionNames.push(e.name) : null});
+            
+            res.json(collectionNames);
+        
+          });
+    });
+   
+  }
+  
     
   
   this.recent = function(req, res){

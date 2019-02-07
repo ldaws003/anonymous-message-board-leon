@@ -1,0 +1,32 @@
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 95%;
+  position: relative;
+  justify-content: space-around;
+  top: 100px;
+  height: auto;
+}
+
+.linkContainer {
+  flex-basis: auto;
+  flex-grow: 0;
+
+  text-align: center;
+}
+
+.boardLink {
+  text-decoration: none;  
+  border-radius: 15px;
+  background-color: yellow;
+  margin: auto;
+  padding: 25px 50px;
+  color: black;
+}
+
+.boardLink:hover {
+  color: white;
+  background-color: blue;
+}
