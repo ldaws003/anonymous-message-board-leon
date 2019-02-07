@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/public/homepage_style.css">
     <link rel="stylesheet" href="/public/general_style.css">
     <link rel="stylesheet" href="/public/navbar.css">
+    <link rel="stylesheet" href="/public/all_boards.css">    
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
@@ -30,4 +31,24 @@
     <div id="boardContainer" class="flexContainer"></div>
     
   </body>
+  <script>
+    $(document).ready(function(){
+      $(function(){
+        $.ajax({
+          type: "GET",
+          url: "/api/allboards",
+          success: function(data){
+            html = [];
+            data.forEach(function(ele){
+              html.push('<div class="linkContainer"><a class="boardLink" href="/b/'+ele+'/">'+ele+'</a></div>');
+            });
+            $("#boardContainer").html(html.join(''));
+          },
+          err: function(){
+            console.log("Sorry there was an error. Please try again later.");          
+          }
+        });
+      })
+    });
+  </script>
 </html>

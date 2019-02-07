@@ -1,10 +1,3 @@
-/*
-*
-*
-*       Complete the API routing below
-*
-*
-*/
 
 'use strict';
 const express = require('express');
@@ -42,5 +35,8 @@ module.exports = function(app) {
   
   app.route('/api/recent')
     .get(recentThreadHandler.recent);
+  
+  app.route('/api/allboards')
+    .get(recentThreadHandler.allBoards);
   
 };
