@@ -40,7 +40,7 @@
           success: function(data){
             html = [];
             data.forEach(function(ele){
-              html.push('<div class="linkContainer"><a class="boardLink" href="/b/'+ele+'/">'+ele+'</a></div>');
+              html.push('<a class="boardLink linkContainer" href="/b/'+ele+'/">/'+ele+'/</a>');
             });
             $("#boardContainer").html(html.join(''));
           },
