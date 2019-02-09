@@ -15,13 +15,11 @@
 }
 
 body {
-  /*background-color: rgba(0, 235, 231, 1);*/
   background: url(https://cdn.glitch.com/42b07742-d38a-47f1-8faa-41055b558bf7%2Fconnectwork.png?1549428246653);
 }
 
 .gap {
   height: 5px;
-  /*background-color: rgba(235, 0, 0, 0.74);*/
 }
 
 .active {

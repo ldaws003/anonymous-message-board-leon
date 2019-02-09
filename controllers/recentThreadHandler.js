@@ -61,6 +61,10 @@ function RecentThreadHandler(){
         
         db.collection(collection).find({}).sort({bumped_on: -1}).toArray(function(err, data){
           if(err) callback(null, err);
+          if(!data[0]){
+            callback(null, null);
+            return;
+          };
           data[0].replycount = data[0].replies.length;
           data[0].replies = data[0].replies.slice(-1);
           data[0].threadCount = data.length;
@@ -75,11 +79,9 @@ function RecentThreadHandler(){
     function callback(err, results){
       if(err) throw err;
       
-      var boards = results;
-      boards.sort((a,b)=>{
+      var boards = results.filter((a) => a != null).sort((a,b)=>{
         return b.bumped_on - a.bumped_on;
-      });
-      boards = results.slice(0,5);
+      }).slice(0,5); 
       boards.forEach((ele)=>{
         ele.bumped_on = moment(new Date(ele.bumped_on)).calendar()
       })

@@ -12,7 +12,7 @@ const apiRecent = require("../controllers/recentThreadHandler.js");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const CONNECTION_STRING = process.env.DB; //MongoClient.connect(CONNECTION_STRING, function(err, db) {});
+const CONNECTION_STRING = process.env.DB;
 
 
 module.exports = function(app) {
@@ -38,5 +38,8 @@ module.exports = function(app) {
   
   app.route('/api/allboards')
     .get(recentThreadHandler.allBoards);
+  
+  app.route('/api/createBoard')
+     .post(boardHandler.createBoard);
   
 };
