@@ -13,9 +13,10 @@
   color: white;  
 }
 
-textarea {
+.textareaClass {
   width: 75%;
   resize: none;
+  padding: 5px;
 }
 
 .boardTop {
@@ -60,4 +61,45 @@ textarea {
 
 #submitNewThread {
   margin: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+.boardFormClass {
+  text-align: center;
+}
+
+.boardCreator {
+  width: 130px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.passwordInput {
+  width: 115px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.customFocus:focus {
+  outline: 2px dotted rgba(0, 145, 235, 1);
+}
+
+.submitButton {
+  width: 75px;
+  height: 25px;
+  background-color: grey;
+  font-family: 'Arial';
+  font-size: 16px;
+  border-radius: 15px;
+}
+
+.quickReplyButtons {
+  margin: 0 5px;
 }

@@ -4,12 +4,18 @@
   flex-wrap: wrap;
   margin: auto;
   width: 95%;
-  position: relative;
+  margin-top: 105px;
   align-items: flex-start;
-  justify-content: space-around;
-  align-content: space-around;
-  top: 100px;
-  height: 50vh;
+  justify-content: flex-start;
+  align-content: flex-start;
+  top: 0px;
+  /*height: 50vh; add in for mobile*/
+}
+
+.centered {
+  text-decoration: underline;
+  text-align: center;
+  font-size: 24px;
 }
 
 .linkContainer {
@@ -17,8 +23,10 @@
   flex-grow: 0;
   flex-shrink: 0;
   text-align: center;
-  height: 100px;
+  height: auto;
   width: 100px;
+  min-width: 100px;
+  max-width: 100px;
   display: inline-block;
 }
 
@@ -27,9 +35,11 @@
   border-radius: 15px;
   background-color: hsla(239, 100%, 55%, 1);
   margin: auto;
-  padding: 25px 50px;
-  width: auto;
-  height: auto;
+  padding: 25px 25px;
+  /*padding-top: 20px;
+  padding-bottom: 20px;
+  /*width: auto;
+  height: auto;*/
   color: white;
   font-family: "Verdana";
   border: 2px solid hsla(239, 100%, 28%, 0.8);

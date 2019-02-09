@@ -1,4 +1,5 @@
 .navclass {
+  position: sticky;
   background-color: black;
   display: flex;
   flex-direction: row;

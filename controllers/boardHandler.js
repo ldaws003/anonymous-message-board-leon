@@ -111,6 +111,39 @@ function BoardHandler(){
           });
         });
   }
+  
+  this.createBoard = function(req, res){ 
+    
+    var board_name = req.body.board_name.trim();
+    var password = req.body.new_board_password.trim();
+    
+    if(password != "password"){
+      res.status(401).send({message: "incorrect password"});
+      return;
+    }
+    
+    function CreateBoard(db, board){
+      db.listCollections({name: board})
+                    .next(function(err, isHere){
+                              if(err) console.log(err);
+                              
+                              if(Boolean(isHere)){
+                                res.status(409).send({message: "This board already exists"});                             
+                              } else {
+                                db.createCollection(board);
+                                res.json({message: 'Creation of the ' + board + ' board was successful.\nClick OK to go there.', board: board});                              
+                              }               
+                    });
+    }
+    
+    MongoClient.connect(CONNECTION_STRING, function(err, db){
+      if(err) console.log(err);   
+      
+      
+      CreateBoard(db, board_name);    
+    });
+    
+  }
 
 }
 
