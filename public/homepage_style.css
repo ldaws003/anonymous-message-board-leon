@@ -19,52 +19,14 @@
   padding: 5px;
 }
 
-.boardTop {
-  background-color: hsla(241, 45%, 39%, 1);
-  padding: 5px;
-  margin-bottom: 10px;
-  color: white;
-}
-
 .inLine {
   display: inline-block;
-}
-
-.main {
-  border: 2px black solid;
-  border-radius: 5px;
 }
 
 #recentThreads {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-}
-
-.replies {
-  margin-left: 50px;
-}
-
-.reply {
-  border: 1px dotted black;
-  margin: 5px;
-  padding: 5px;
-}
-
-.newReply {
-  margin: 10px 5px 10px 5px;
-}
-
-.id {
-  font-size: 10.5px;
-}
-
-#submitNewThread {
-  margin: 50px;
-}
-
-.center {
-  text-align: center;
 }
 
 .boardFormClass {
@@ -91,6 +53,10 @@
   outline: 2px dotted rgba(0, 145, 235, 1);
 }
 
+.center {
+  text-align: center;
+}
+
 .submitButton {
   width: 75px;
   height: 25px;
@@ -100,6 +66,6 @@
   border-radius: 15px;
 }
 
-.quickReplyButtons {
-  margin: 0 5px;
+.submitButton:hover {
+  background-color: rgba(245, 245, 245, 1);
 }

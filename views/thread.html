@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="/public/board_style.css">
     <link rel="stylesheet" href="/public/general_style.css">
     <link rel="stylesheet" href="/public/navbar.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -29,9 +29,6 @@
     <br>
     
     <div id='boardDisplay'></div>
-    
-    <hr style='margin: 50px; margin-top: 200px'>
-    <!-- Your web-app is https, so your scripts need to be too -->
 
     <script>
       $(document).ready(function() {
@@ -47,13 +44,10 @@
           data:{thread_id: currentURL[1]},
           success: function(ele)
           {
-            
+                        
             var boardThreads= [];
-            //
-            // THIS ARRAY SET UP IS FOR CODE READABILITIES AND TESTING!
-            // THIS IS NOT WHAT IT WOULD LOOK LIKE TO GO LIVE
-            //
-              var thread = ['<div class="thread">'];
+     
+              var thread = ['<div class="gap"></div><div class="thread">'];
               thread.push('<div class="main">')
               thread.push('<p class="id">id: '+ele._id+' ('+ele.created_on+')</p>');
               thread.push('<form id="reportThread"><input type="hidden" name="report_id" value="'+ele._id+'"><input type="submit" value="Report"></form>');
