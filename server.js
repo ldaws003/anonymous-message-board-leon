@@ -53,7 +53,7 @@ app.route('/about')
 
 app.route('/contact')
   .get(function(req, res){
-    res.sendFile(process.cwd() + '/views/construction.html');
+    res.sendFile(process.cwd() + '/views/contact.html');
   });
 
 //For FCC testing purposes

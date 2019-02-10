@@ -1,0 +1,16 @@
+.contactP {
+  color: white;
+  font-size: 16px;
+  font-family: "Times New Roman";
+  margin: 0px 15px;
+  width: 85%;
+}
+
+.contactHeader {
+  font-size: 32px;
+  font-family: "Verdana";
+  color: white;
+  margin: 0px 15px;
+  margin-bottom: 25px;
+  width: 85%;
+}
