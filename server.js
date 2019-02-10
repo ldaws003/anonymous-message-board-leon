@@ -48,7 +48,7 @@ app.route('/all-boards')
 
 app.route('/about')
   .get(function(req, res){
-    res.sendFile(process.cwd() + '/views/construction.html');
+    res.sendFile(process.cwd() + '/views/about.html');
   });
 
 app.route('/contact')
