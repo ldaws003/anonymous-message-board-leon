@@ -1,0 +1,93 @@
+.boardTop {
+  background-color: hsla(241, 45%, 39%, 1);
+  padding: 5px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.boardLink {
+  color: hsla(90, 100%, 50%, 1);
+}
+
+.main {
+  border: 2px black solid;
+  border-radius: 5px;
+}
+
+.replies {
+  margin-left: 50px;
+}
+
+.reply {
+  border: 1px solid black;
+  width: 95%;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.newReply {
+  margin: 10px 5px 10px 5px;
+}
+
+.id {
+  font-size: 11px;
+  color: white;
+}
+
+#submitNewThread {
+  margin: 50px;
+}
+
+.quickReplyButtons {
+  margin: 0 5px;
+}
+
+.boardTextContainer {
+  width: 95%;
+  margin: 0px auto;
+  padding: 25px;
+  padding: 10px;
+}
+
+.hiddenCount {
+  font-size: 12px;
+  font-family: "Arial";
+}
+
+.replyHead {
+  background-color: hsla(241, 45%, 39%, 1);
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;  
+}
+
+.replyText {
+  padding: 5px;
+}
+
+.inLine {
+  display: inline-block;
+}
+
+.alignRight {
+  display: inline-block;
+  text-align: right;
+}
+
+.myButton {
+  font-family: "Arial";
+  font-size: 14px;
+  background-color: rgba(173, 173, 173, 1);
+  padding: 1px;
+}
+
+.myButton:hover {
+  background-color: rgba(245, 245, 245, 1);
+}
+
+.innerPadding {
+  padding: 2px;
+}

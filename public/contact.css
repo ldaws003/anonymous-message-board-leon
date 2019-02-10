@@ -2,7 +2,7 @@
   color: white;
   font-size: 16px;
   font-family: "Times New Roman";
-  margin: 0px 15px;
+  margin: 0px auto;
   width: 85%;
 }
 
@@ -10,7 +10,8 @@
   font-size: 32px;
   font-family: "Verdana";
   color: white;
-  margin: 0px 15px;
+  margin: 0px auto;
   margin-bottom: 25px;
   width: 85%;
+  text-align: center;
 }
