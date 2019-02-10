@@ -1,0 +1,35 @@
+.aboutHeader {
+  color: white;
+  text-align: center;
+  margin-left: 20px;
+  font-size: 36px;
+  font-family: 'Verdana';
+}
+
+.smallHeader {
+  color: white;
+  font-size: 26px;
+  margin: 20px 0;
+  margin-left: 20px;
+  font-family: 'Verdana';
+}
+
+.aboutParagraph {
+  font-size: 16px;
+  color: white;
+  margin: 20px 0;
+  margin-left: 20px;
+  font-family: "Times New Roman";
+}
+
+.guidelineLists {
+  color: white;
+  margin: 20px 0px;
+  margin-left: 35px;
+  margin-top: 5px;
+  font-family: "Times New Roman";
+}
+
+.guidelineLists li {
+  margin: 5px 0px;
+}
