@@ -12,6 +12,7 @@
 .main {
   border: 2px black solid;
   border-radius: 5px;
+  background-color: hsla(134, 0%, 86%, 1);
 }
 
 .replies {
@@ -22,6 +23,7 @@
   border: 1px solid black;
   width: 95%;
   margin: 5px;
+  padding: 0px;
   border-radius: 5px;
 }
 
@@ -32,10 +34,6 @@
 .id {
   font-size: 11px;
   color: white;
-}
-
-#submitNewThread {
-  margin: 50px;
 }
 
 .quickReplyButtons {
@@ -64,6 +62,12 @@
   align-items: baseline;  
 }
 
+.textareaClass {
+  width: 75%;
+  resize: none;
+  padding: 5px;
+}
+
 .replyText {
   padding: 5px;
 }
@@ -90,4 +94,39 @@
 
 .innerPadding {
   padding: 2px;
+}
+
+.threadHead {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;  
+}
+
+.board {
+  margin-top: 5px;
+}
+
+.whiteText {
+  color: white;
+}
+
+.boardTitle {
+  color: white;
+}
+
+.boardTitleHeader {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.newThreadAlign {
+  width: 85%;
+  margin: 20px auto;
+}
+
+.submitNewThreadText {
+  padding: 5px;
+  resize: none;
 }
