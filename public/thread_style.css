@@ -1,0 +1,12 @@
+
+.threadDisplay {
+  width: 75%;
+  margin: 0px auto;
+  border-radius: 150px;
+}
+
+.threadTitleClass {
+  color: white;
+  width: 85%;
+  margin: 30px auto;
+}
