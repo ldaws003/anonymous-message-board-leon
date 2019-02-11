@@ -13,12 +13,6 @@
   color: white;  
 }
 
-.textareaClass {
-  width: 75%;
-  resize: none;
-  padding: 5px;
-}
-
 .inLine {
   display: inline-block;
 }

@@ -58,7 +58,7 @@
             success: function(data){
              var boardThreads= [];
               data.forEach(function(ele) {              
-                var thread = ['<div class="gap"></div><div class="board">'];
+                var thread = ['<div class="board">'];
                 thread.push('<div class="main">')
                 thread.push('<p class="boardPost boardTop">Board: <a class="boardLink" href="/b/'+ele.board+'/">'+ele.board+'</a> Bumped on: '+ ele.bumped_on+'</p>');
                 thread.push('<div class="thread"><form id="reportThread" class="inLine"><input type="hidden" name="report_id" value="'+ele._id+'"><input class="quickReplyButtons myButton" type="submit" value="Report"></form>');
@@ -70,7 +70,7 @@
                 thread.push('<h5 class="hiddenCount">'+ele.threadCount+' threads total ('+hiddenCount+' hidden)- <a href="/b/'+ele.board+'/'+ele._id+'">See the full thread here</a>.</h5>');
                 ele.replies.forEach(function(rep) {
                   thread.push('<div class="reply"><div class="replyHead">')
-                  thread.push('<p class="id inLine">id: '+rep._id+' ('+rep.created_on+')</p><div class="alignRight"');
+                  thread.push('<p class="id inLine">id: '+rep._id+' ('+rep.created_on+')</p><div class="alignRight">');
                   thread.push('<form id="reportReply" class="inLine"><input type="hidden" name="thread_id" value="'+ele._id+'"><input type="hidden" name="reply_id" value="'+rep._id+'"><input class="quickReplyButtons myButton" type="submit" value="Report"></form>');
                   thread.push('<form id="deleteReply" class="inLine"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="hidden" value="'+rep._id+'" name="reply_id" required=""><input class="innerPadding" type="password" placeholder="password" name="delete_password" required=""><input class="quickReplyButtons myButton" type="submit" value="Delete"></form></div></div>');
                   thread.push('<p class="replyText">'+rep.text+'</p>');
