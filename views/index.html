@@ -30,16 +30,6 @@
       </h1>
     </header>
     
-    <h1 class="header center">
-      Create a Board
-    </h1>
-    
-    <form id="boardForm" class="boardFormClass" method="post" action="/api/createBoard/">
-      <input class="boardCreator customFocus" type="text" placeholder="create a new board." name="board_name" maxlength="15">
-      <input class="passwordInput customFocus" type="password" placeholder="password" name="new_board_password" maxlength="15">
-      <input id="password_submit_button" class="submitButton" type="submit" value="Submit">
-    </form>
-    
     <h2 class="header">
       Most Recently Bumped Boards
     </h2>
@@ -90,29 +80,6 @@
         );         
         });             
       });
-    </script>
-    <script>
-      $(document).ready(function(){
-        $("#boardForm").submit(function(event){
-          var url = this.action;
-          event.preventDefault();
-          $.ajax({
-            type: "POST",
-            url: url,
-            data: $(this).serialize(),
-            success: function(data){              
-              var postUrl = '/b/' + data.board+'/';
-              var goto = confirm(data.message);
-              if(goto){
-                $(location).attr('href', postUrl);
-              }               
-            },
-            error: function(data){
-              alert(data.responseJSON.message)          
-            }
-          });
-        });          
-      })
     </script>
   </body>
 </html>
