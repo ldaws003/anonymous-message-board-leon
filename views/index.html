@@ -67,7 +67,7 @@
                 thread.push('</div><div class="replies">');
                 var hiddenCount = ele.threadCount - 1;
                 if (hiddenCount < 1) { hiddenCount = 0 };
-                thread.push('<h5 class="hiddenCount">'+ele.threadCount+' threads total ('+hiddenCount+' hidden)- <a href="/b/'+ele.board+'/'+ele._id+'">See the full thread here</a>.</h5>');
+                thread.push('<h5 class="hiddenCount">'+ele.threadCount+' threads total ('+hiddenCount+' hidden)- <a href="/b/'+ele.board+'/'+ele._id+'">See the full thread of the most recent reply here</a>.</h5>');
                 ele.replies.forEach(function(rep) {
                   thread.push('<div class="reply"><div class="replyHead">')
                   thread.push('<p class="id inLine">id: '+rep._id+' ('+rep.created_on+')</p><div class="alignRight">');
