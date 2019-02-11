@@ -38,8 +38,4 @@ module.exports = function(app) {
   
   app.route('/api/allboards')
     .get(recentThreadHandler.allBoards);
-  
-  app.route('/api/createBoard')
-     .post(boardHandler.createBoard);
-  
 };
