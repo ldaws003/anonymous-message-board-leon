@@ -94,7 +94,7 @@ suite('Functional Tests', function() {
         .put('/api/threads/:board')
         .send({
           board: board,
-          report_id: "5c24d25b79559e121d4ab240"
+          report_id: "5c263e3fbbcc7e39556bde44"
         })
         .end(function(err, res){
           assert.equal(res.status, 200);
