@@ -257,19 +257,66 @@ suite('Functional Tests', function() {
       
     });
     
+  });
+  
+  //
+  
+  suite('API routing for /all-boards', function(){
+    
     suite('GET', function(){
       
       test('GET response for getting a list of all colections.', function(done){
         
         chai.request(server)
           .get('/api/allboards')
-          .send()
-          .end();
+          .send({})
+          .end(function(err, res){
+             assert.equal(res.status, 200);
+             assert.isArray(res.body);
+             res.body.forEach((ele) => {
+               assert.isString(ele, 'Each collection name must be a string');             
+             });
+             done();
+          });
+      
+      });    
+    });
+  
+  });
+  
+  suite('API routing for the homepage in getting the most recently bumped boards', function(){
+    
+    suite('GET', function(){
+      
+      test('GET response for getting the most recently bumped collections and most recent reply.', function(done){
+        
+        chai.request(server)
+            .get('/api/recent')
+            .send({})
+            .end(function(err, res){
+                assert.equal(res.status, 200);
+                assert.isArray(res.body);
+                assert.isAtMost(res.body.length, 5);
+                res.body.forEach((doc) => {
+                  assert.typeOf(doc, 'object');
+                  assert.isString(doc.board);
+                  assert.isString(doc.bumped_on);
+                  assert.property(doc,'_id');
+                  assert.isString(doc.text);
+                  assert.typeOf(doc.threadCount, 'number');
+                  assert.isArray(doc.replies);
+                  assert.isAtMost(doc.replies.length, 1);
+                  assert.property(doc.replies[0],'_id');
+                  assert.isString(doc.replies[0].created_on);
+                  assert.isString(doc.replies[0].text);
+                
+                });
+          
+               done();        
+            });
       
       });
-    
     });
-    
   });
 
 });
