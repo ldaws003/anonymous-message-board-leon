@@ -16,7 +16,7 @@ chai.use(chaiHttp);
 var thread1_id;
 var thread1_reply_id;
 var thread2_id;
-var board = 'testing';
+var board = 'general';
 
 suite('Functional Tests', function() {
 
@@ -255,6 +255,19 @@ suite('Functional Tests', function() {
         });
       });
       
+    });
+    
+    suite('GET', function(){
+      
+      test('GET response for getting a list of all colections.', function(done){
+        
+        chai.request(server)
+          .get('/api/allboards')
+          .send()
+          .end();
+      
+      });
+    
     });
     
   });

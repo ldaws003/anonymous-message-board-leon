@@ -16,6 +16,7 @@ const MongoClient = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 const bodyParser = require('body-parser');
 const appThread = express();
+const moment = require('moment');
 
 appThread.use(bodyParser.json());
 appThread.use(bodyParser.urlencoded({ extended: true }));
@@ -34,7 +35,11 @@ function ThreadHandler() {
           
           db.collection(board).findOne({_id: new ObjectId(thread_id)}, function(err, data){
             if(err) console.log(err);
-            
+            data.created_on = moment(new Date(data.created_on)).calendar();
+            data.bumped_on = moment(new Date(data.created_on)).calendar();
+            data.replies.forEach((reply) => {
+              reply.created_on = moment(new Date(reply.created_on)).calendar();;            
+            });
             res.json(data);
           });
         

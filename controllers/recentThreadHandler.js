@@ -30,7 +30,7 @@ function RecentThreadHandler(){
             var collectionNames = [];
             
             collInfo.map((e) => {e.name != "system.indexes" ? collectionNames.push(e.name) : null});
-            
+
             res.json(collectionNames);
         
           });
@@ -83,7 +83,11 @@ function RecentThreadHandler(){
         return b.bumped_on - a.bumped_on;
       }).slice(0,5); 
       boards.forEach((ele)=>{
-        ele.bumped_on = moment(new Date(ele.bumped_on)).calendar()
+        ele.bumped_on = moment(new Date(ele.bumped_on)).calendar();
+        ele.board =  ele.board.replace(/_/g, ' ');
+        ele.replies.forEach((ele)=>{
+          ele.created_on = moment(new Date(ele.created_on)).calendar();        
+        });
       })
       res.json(boards);
     }
