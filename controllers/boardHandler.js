@@ -12,6 +12,7 @@ const MongoClient = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 const bodyParser = require('body-parser');
 const appBoard = express();
+const moment = require('moment');
 
 appBoard.use(bodyParser.json());
 appBoard.use(bodyParser.urlencoded({ extended: true }));
@@ -33,7 +34,12 @@ function BoardHandler(){
             
             data.forEach((doc) => {
               doc.replycount = doc.replies.length;
+              doc.bumped_on = moment(new Date(doc.bumped_on)).calendar();
+              doc.created_on = moment(new Date(doc.created_on)).calendar();
               doc.replies = doc.replies.slice(-3);
+              doc.replies.forEach((reply) => {
+                reply.created_on = moment(new Date(reply.created_on)).calendar();
+              });
             });
 
                                  

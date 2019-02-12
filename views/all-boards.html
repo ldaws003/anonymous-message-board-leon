@@ -44,7 +44,7 @@
           success: function(data){
             html = [];
             data.forEach(function(ele){
-              html.push('<a class="boardLink linkContainer" href="/b/'+ele+'/">/'+ele+'/</a>');
+              html.push('<a class="boardLink linkContainer" href="/b/'+ele+'/">/'+ele.replace(/_/g,' ')+'/</a>');
             });
             $("#boardContainer").html(html.join(''));
           },
