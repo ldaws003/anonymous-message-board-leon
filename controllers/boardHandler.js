@@ -108,6 +108,7 @@ function BoardHandler(){
           
           db.collection(board).findOneAndDelete({_id: new ObjectId(thread_id), delete_password: delete_password},function(err, doc){
             if(err) console.log(err)
+
             
             if(doc.value){
               res.type('text').send("success");
