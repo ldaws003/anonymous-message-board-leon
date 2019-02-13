@@ -2,6 +2,7 @@
   background-color: hsla(241, 45%, 39%, 1);
   padding: 5px;
   margin-bottom: 10px;
+  font-size: 12px;
   color: white;
 }
 
@@ -16,7 +17,7 @@
 }
 
 .replies {
-  margin-left: 50px;
+  margin-left: 0px;
 }
 
 .reply {
@@ -32,7 +33,7 @@
 }
 
 .id {
-  font-size: 11px;
+  font-size: 10px;
   color: white;
 }
 
@@ -43,19 +44,20 @@
 .boardTextContainer {
   width: 95%;
   margin: 0px auto;
-  padding: 10px;
+  padding: 5px;
 }
 
 .hiddenCount {
-  font-size: 12px;
+  font-size: 10px;
   font-family: "Arial";
+  margin: 0px 25px;
 }
 
 .replyHead {
   background-color: hsla(241, 45%, 39%, 1);
   padding: 5px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: baseline;  
@@ -76,13 +78,16 @@
 }
 
 .alignRight {
-  display: inline-block;
-  text-align: right;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: left;
 }
 
 .myButton {
   font-family: "Arial";
-  font-size: 14px;
+  font-size: 10px;
   background-color: rgba(173, 173, 173, 1);
   padding: 1px;
 }
@@ -107,6 +112,12 @@
   margin-top: 5px;
 }
 
+.responsivePassword {
+  width: 25%;
+  min-width: 100px;
+  max-width: 125px;
+}
+
 .whiteText {
   color: white;
 }
@@ -128,4 +139,142 @@
 .submitNewThreadText {
   padding: 5px;
   resize: none;
+}
+
+@media (min-width: 350px){
+  .boardTop {
+    background-color: hsla(241, 45%, 39%, 1);
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: white;
+  }
+
+  .boardLink {
+    color: hsla(90, 100%, 50%, 1);
+  }
+
+  .main {
+    border: 2px black solid;
+    border-radius: 5px;
+    background-color: hsla(134, 0%, 86%, 1);
+  }
+
+  .replies {
+    margin-left: 50px;
+  }
+
+  .reply {
+    border: 1px solid black;
+    width: 95%;
+    margin: 5px;
+    padding: 0px;
+    border-radius: 5px;
+  }
+
+  .newReply {
+    margin: 10px 5px 10px 5px;
+  }
+
+  .id {
+    font-size: 14px;
+    color: white;
+  }
+
+  .quickReplyButtons {
+    margin: 0 1px;
+  }
+
+  .boardTextContainer {
+    width: 95%;
+    margin: 0px auto;
+    padding: 10px;
+  }
+
+  .hiddenCount {
+    font-size: 12px;
+    font-family: "Arial";
+  }
+
+  .replyHead {
+    background-color: hsla(241, 45%, 39%, 1);
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;  
+  }
+
+  .textareaClass {
+    width: 75%;
+    resize: none;
+    padding: 2px;
+  }
+
+  .replyText {
+    padding: 5px;
+  }
+
+  .inLine {
+    display: inline-block;
+  }
+
+  .alignRight {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .myButton {
+    font-family: "Arial";
+    font-size: 14px;
+    background-color: rgba(173, 173, 173, 1);
+    padding: 4px;
+  }
+
+  .myButton:hover {
+    background-color: rgba(245, 245, 245, 1);
+  }
+
+  .innerPadding {
+    padding: 5px;
+  }
+
+  .threadHead {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;  
+  }
+
+  .board {
+    margin-top: 5px;
+  }
+
+  .whiteText {
+    color: white;
+  }
+
+  .boardTitle {
+    color: white;
+  }
+
+  .boardTitleHeader {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .newThreadAlign {
+    width: 85%;
+    margin: 20px auto;
+  }
+
+  .submitNewThreadText {
+    padding: 5px;
+    resize: none;
+  }
+
 }

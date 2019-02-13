@@ -63,3 +63,73 @@
 .submitButton:hover {
   background-color: rgba(245, 245, 245, 1);
 }
+
+
+@media (min-width: 350px){
+  .homepageHeader {
+    text-align: center;
+    font-family: "Verdana";
+    color: white;
+  }
+
+  .header {
+    width: 85%;
+    margin: auto;
+    font-family: "Arial";
+    margin-bottom: 20px;
+    margin-top: 40px;
+    color: white;  
+  }
+
+  .inLine {
+    display: inline-block;
+  }
+
+  #recentThreads {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .boardFormClass {
+    text-align: center;
+  }
+
+  .boardCreator {
+    width: 130px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+  }
+
+  .passwordInput {
+    width: 115px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+  }
+
+  .customFocus:focus {
+    outline: 2px dotted rgba(0, 145, 235, 1);
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .submitButton {
+    width: 75px;
+    height: 25px;
+    background-color: grey;
+    font-family: 'Arial';
+    font-size: 16px;
+    border-radius: 15px;
+  }
+
+  .submitButton:hover {
+    background-color: rgba(245, 245, 245, 1);
+  }
+
+}
