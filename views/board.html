@@ -30,7 +30,7 @@
     <div id='submitNewThread' class="whiteText newThreadAlign">
       <h3>Submit a new thread:</h3>
       <form id="newThread" method="post" action="/api/">
-        <textarea class="submitNewThreadText" rows="8" cols="120" type='text' placeholder='Thread text...' name='text' maxlength="500" required=''></textarea><br>
+        <textarea class="submitNewThreadText" type='text' placeholder='Thread text...' name='text' maxlength="500" required=''></textarea><br>
         <input type='password' class="innerPadding" placeholder='password to delete' name='delete_password' required=''>
         <input class="quickReplyButtons myButton" type="submit" value="Submit">
       </form>
@@ -51,6 +51,7 @@
         $.ajax({
           type: "GET",
           url: url,
+          imeout: 15000,
           success: function(data)
           {
             var boardThreads= [];
@@ -70,7 +71,7 @@
                 thread.push('<div class="reply"><div class="replyHead">')
                 thread.push('<p class="id inLine">id: '+rep._id+' ('+rep.created_on+')</p> <div class="alignRight">');
                 thread.push('<form id="reportReply" class="inLine"><input type="hidden" name="thread_id" value="'+ele._id+'"><input type="hidden" name="reply_id" value="'+rep._id+'"><input type="submit" class="quickReplyButtons myButton" value="Report"></form>');
-                thread.push('<form id="deleteReply" class="inLine"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="hidden" value="'+rep._id+'" name="reply_id" required=""><input type="password" class="innerPadding" placeholder="password" name="delete_password" required=""><input type="submit" class="quickReplyButtons myButton" value="Delete"></form>');
+                thread.push('<form id="deleteReply" class="inLine"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="hidden" value="'+rep._id+'" name="reply_id" required=""><input type="password" class="innerPadding responsivePassword" placeholder="password" name="delete_password" required=""><input type="submit" class="quickReplyButtons myButton" value="Delete"></form>');
                 thread.push('</div></div><p class="replyText">'+rep.text+'</p>');
                 thread.push('</div>')
               });
@@ -83,7 +84,12 @@
               boardThreads.push(thread.join(''));
             });
             $('#boardDisplay').html(boardThreads.join(''));
-          }
+          },
+          
+          error: function(){
+              var html = "<p style='color: yellow; font-size: 20px;text-align:center;margin-top:50px;'>Sorry but this resource cannot be loaded know.</p>";
+              $('#boardDisplay').html(html);            
+            }
         });
         
         $('#newThread').submit(function(){

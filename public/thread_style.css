@@ -1,6 +1,6 @@
 
 .threadDisplay {
-  width: 75%;
+  width: 85%;
   margin: 0px auto;
   border-radius: 150px;
 }
@@ -8,5 +8,26 @@
 .threadTitleClass {
   color: white;
   width: 85%;
+  font-size: 20px;
+  overflow-wrap: break-word;
   margin: 30px auto;
+}
+
+
+@media (min-width: 350px){
+  
+  .threadDisplay {
+    width: 75%;
+    margin: 0px auto;
+    border-radius: 150px;
+  }
+
+  .threadTitleClass {
+    color: white;
+    width: 85%;
+    overflow-wrap: break-word;
+    margin: 30px auto;
+    font-size: 36px;
+  }
+
 }

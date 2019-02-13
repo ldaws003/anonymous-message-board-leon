@@ -26,7 +26,10 @@ const CONNECTION_STRING = process.env.DB;
 function ThreadHandler() {
   
   this.replyList = function(req, res){
-    var board = req.body.board || req.params.board;
+    
+    //this gets the given thread and all of its replies
+       var board = req.body.board || req.params.board;  
+    
         
         var thread_id = req.body.thread_id || req.query.thread_id;
     
@@ -48,7 +51,9 @@ function ThreadHandler() {
   
   this.newReply = function(req, res){
     
-    var data = JSON.parse(JSON.stringify(req.body));
+        //this creates a new reply for a given thread
+    
+        var data = JSON.parse(JSON.stringify(req.body));
         
         var board = data.board || req.params.board;
   
@@ -79,6 +84,8 @@ function ThreadHandler() {
   
   this.reportReply = function(req, res){
     
+        //this function allows for the reporting of a given reply
+    
         var thread_id = req.body.thread_id;
         var reply_id = req.body.reply_id;
         var board = req.body.board || req.params.board;
@@ -105,7 +112,9 @@ function ThreadHandler() {
   
   this.deleteReply = function(req, res) {
     
-    var board = req.body.board || req.params.board;
+        //this function allows for the deletion of a given reply
+    
+        var board = req.body.board || req.params.board;
         var reply_id = req.body.reply_id;
         var thread_id = req.body.thread_id;
         var delete_password = req.body.delete_password;
