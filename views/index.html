@@ -52,7 +52,7 @@
                 thread.push('<div class="main">')
                 thread.push('<p class="boardPost boardTop">Board: <a class="boardLink" href="/b/'+ele.board+'/">'+ele.board.replace(/_/g,' ')+'</a> Bumped on: '+ ele.bumped_on+'</p>');
                 thread.push('<div class="thread"><form id="reportThread" class="inLine"><input type="hidden" name="report_id" value="'+ele._id+'"><input class="quickReplyButtons myButton" type="submit" value="Report"></form>');
-                thread.push('<form id="deleteThread" class="inLine"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input class="innerPadding" type="password" placeholder="password" name="delete_password" maxlength="30" required=""><input class="quickReplyButtons myButton" type="submit" value="Delete"></form>');
+                thread.push('<form id="deleteThread" class="inLine"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input class="innerPadding" type="password" placeholder="delete password" name="delete_password" maxlength="30" required=""><input class="quickReplyButtons myButton" type="submit" value="Delete"></form>');
                 thread.push('<div class="boardTextContainer"><h3>'+ele.text+'</h3></div>');
                 thread.push('</div><div class="replies">');
                 var hiddenCount = ele.threadCount - 1;
@@ -62,7 +62,7 @@
                   thread.push('<div class="reply"><div class="replyHead">')
                   thread.push('<p class="id inLine">id: '+rep._id+' ('+rep.created_on+')</p><div class="alignRight">');
                   thread.push('<form id="reportReply" class="inLine"><input type="hidden" name="thread_id" value="'+ele._id+'"><input type="hidden" name="reply_id" value="'+rep._id+'"><input class="quickReplyButtons myButton" type="submit" value="Report"></form>');
-                  thread.push('<form id="deleteReply" class="inLine"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="hidden" value="'+rep._id+'" name="reply_id" required=""><input class="innerPadding" type="password" placeholder="password" name="delete_password" required=""><input class="quickReplyButtons myButton" type="submit" value="Delete"></form></div></div>');
+                  thread.push('<form id="deleteReply" class="inLine"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="hidden" value="'+rep._id+'" name="reply_id" required=""><input class="innerPadding responsivePassword" type="password" placeholder="delete password" name="delete_password" required=""><input class="quickReplyButtons myButton" type="submit" value="Delete"></form></div></div>');
                   thread.push('<p class="replyText">'+rep.text+'</p>');
                   thread.push('</div>')
                 });

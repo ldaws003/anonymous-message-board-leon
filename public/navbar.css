@@ -1,8 +1,7 @@
 .navclass {
-  position: sticky;
   background-color: black;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   overflow: hidden;
   flex-wrap: wrap;
   align-content: stretch;  
@@ -17,7 +16,9 @@
   text-decoration: none;
   text-align: center;
   display: block;
-  padding: 15px 15px;
+  padding: 7px 7px;
+  font-size: 18px;
+  width: 100%;
   flex-grow: 1;
   margin: auto;
   color: white;
@@ -26,4 +27,40 @@
 
 .nav-link:hover {
   background-color: grey;
+}
+
+
+
+@media (min-width: 350px){
+  .navclass {
+    position: sticky;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex-wrap: wrap;
+    align-content: stretch;  
+    align-items: stretch;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 20px;
+    top: 0px;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 15px 15px;
+    font-size: 20px;
+    width: auto;
+    flex-grow: 1;
+    margin: auto;
+    color: white;
+    font-family: "Verdana"
+  }
+
+  .nav-link:hover {
+    background-color: grey;
+  }  
 }
