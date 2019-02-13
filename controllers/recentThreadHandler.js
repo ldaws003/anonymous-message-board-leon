@@ -28,6 +28,8 @@ function RecentThreadHandler(){
       db.listCollections().toArray(function(err, collInfo){
             
             var collectionNames = [];
+        
+           //collecting all of the board names to be displayed
             
             collInfo.map((e) => {e.name != "system.indexes" ? collectionNames.push(e.name) : null});
 
@@ -41,6 +43,12 @@ function RecentThreadHandler(){
     
   
   this.recent = function(req, res){
+    
+    //getting the most recent reply for each collection
+    
+    //this function returns an array of anonymous functions of the asyn function ahead
+    //this is done so that each function would have it's own version of collect for each 
+    //collection
      function returnFunction(arrCollection, callback){
        let arrFunc = [];
        
@@ -54,6 +62,7 @@ function RecentThreadHandler(){
       return arrFunc;
     }
     
+    //this takes in an anonymous function and returns the data (most recent) from a single collection    
     function fetchRecent(collection, callback){
       
       MongoClient.connect(CONNECTION_STRING, function(err, db){
@@ -76,6 +85,7 @@ function RecentThreadHandler(){
     }
     
     
+    //this is the callback function that would be used in the asyncMethod.parrallel method    
     function callback(err, results){
       if(err) throw err;
       

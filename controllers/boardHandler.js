@@ -22,8 +22,9 @@ const CONNECTION_STRING = process.env.DB;
 function BoardHandler(){
   
   this.threadList = function(req, res){
-
     
+    
+    //this fetches the the threads within a given board    
     var board =  req.body.board || req.params.board;       
         
         MongoClient.connect(CONNECTION_STRING, function(err, db) {
@@ -57,6 +58,7 @@ function BoardHandler(){
        data.reported = false;
        data.replies = [];  
       
+     //this creates a new thread within a given board
               
       MongoClient.connect(CONNECTION_STRING, function(err, db) {
          db.collection(board).insertOne(data, function(err, data){
@@ -75,8 +77,11 @@ function BoardHandler(){
   }
   
   this.reportThread = function(req, res){
-    var report_id = req.body.report_id;
+        var report_id = req.body.report_id;
         var board = req.body.board || req.params.board;
+    
+    
+       //this makes it so that a thread can be reported
     
         MongoClient.connect(CONNECTION_STRING, function(err, db){
           if(err) console.log(err);
@@ -97,6 +102,8 @@ function BoardHandler(){
   }
   
   this.deleteThread = function(req, res){
+    
+        //this deletes a specific thread
       
         var thread_id = req.body.thread_id;
         var delete_password = req.body.delete_password;
@@ -120,6 +127,9 @@ function BoardHandler(){
   }
   
   this.createBoard = function(req, res){ 
+    
+    
+    //this function creates aboard, not currently used may delete later
     
     var board_name = req.body.board_name.trim();
     var password = req.body.new_board_password.trim();

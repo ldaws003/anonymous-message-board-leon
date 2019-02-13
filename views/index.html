@@ -45,6 +45,7 @@
           $.ajax({
             type: "GET",
             url: "/api/recent",
+            timeout: 15000,
             success: function(data){
              var boardThreads= [];
               data.forEach(function(ele) {              
@@ -75,6 +76,11 @@
                 boardThreads.push(thread.join(''));
               });
               $('#recentThreads').html(boardThreads.join(''));
+            },
+            
+            error: function(){
+              var html = "<p style='color: yellow; font-size: 20px;text-align:center;margin-top:50px;'>Sorry but this resource cannot be loaded know.</p>";
+              $('#recentThreads').html(html);            
             }
          }
         );         

@@ -58,7 +58,7 @@
   padding: 5px;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;  
 }
@@ -103,7 +103,7 @@
 .threadHead {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;  
 }
@@ -138,6 +138,8 @@
 
 .submitNewThreadText {
   padding: 5px;
+  width: 95%;
+  height: 150px;
   resize: none;
 }
 
@@ -201,7 +203,7 @@
     padding: 4px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;  
   }
@@ -245,7 +247,7 @@
   .threadHead {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;  
   }
@@ -273,6 +275,8 @@
   }
 
   .submitNewThreadText {
+    width: 75%;
+    height: 150px;
     padding: 5px;
     resize: none;
   }
